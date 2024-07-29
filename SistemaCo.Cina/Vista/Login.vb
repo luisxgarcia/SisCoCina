@@ -1,6 +1,7 @@
 ﻿Imports System.Data.SqlClient
 Imports System.Security.Cryptography
 Imports System.Text
+Imports SistemaCo.Cina.Main
 
 Public Class Login
     Private userController As LoginController
@@ -23,7 +24,9 @@ Public Class Login
         Dim contrasena As String = TxtContrasena.Text
 
         If userController.Login(usuario, contrasena) Then
-            MsgBox("Bienvenido")
+            Me.Hide()
+            Dim mainForm As New Main()
+            mainForm.Show()
         Else
             MsgBox("Usuario o contraseña incorrecta")
         End If
